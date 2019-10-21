@@ -1,0 +1,62 @@
+<div class="modal-header">
+        <h4 class="modal-title">Add Order</h4>
+        <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <form [formGroup]="form" (ngSubmit)="submitForm()">
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="id">Order Number</label>
+                <input type="text" class="form-control" formControlName="id"
+                    [ngClass]="{'is-invalid':form.get('id').touched && form.get('id').invalid}" />
+                <div *ngIf="form.get('id').touched && form.get('id').invalid" class="invalid-feedback">
+                    <div *ngIf="form.get('id').errors.required">Order Number is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Delivery Date</label>
+                <input type="date" name="due_date" formControlName="due_date" max="3000-12-31" min="1000-01-01" class="form-control">
+            </div>
+            
+            <div class="form-group">
+                <label for="customer_name">Customer Name</label>
+                <input type="text" class="form-control" formControlName="customer_name"
+                    [ngClass]="{'is-invalid':form.get('customer_name').touched && form.get('customer_name').invalid}" />
+                <div *ngIf="form.get('customer_name').touched && form.get('customer_name').invalid" class="invalid-feedback">
+                    <div *ngIf="form.get('customer_name').errors.required">Name is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="customer_address">Customer Address</label>
+                <input type="text" class="form-control" formControlName="customer_address"
+                    [ngClass]="{'is-invalid':form.get('customer_address').touched && form.get('customer_address').invalid}" />
+                <div *ngIf="form.get('customer_address').touched && form.get('customer_address').invalid" class="invalid-feedback">
+                    <div *ngIf="form.get('customer_address').errors.required">Address is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="customer_phone">Customer Phone Number</label>
+                <input type="text" class="form-control" formControlName="customer_phone"
+                    [ngClass]="{'is-invalid':form.get('customer_phone').touched && form.get('customer_phone').invalid}" />
+                <div *ngIf="form.get('customer_phone').touched && form.get('customer_phone').invalid" class="invalid-feedback">
+                    <div *ngIf="form.get('customer_phone').errors.required">Phone is required</div>
+                    <div *ngIf="form.get('customer_phone').errors.pattern">Enter Valid Phone</div>
+                    <div *ngIf="form.get('customer_phone').errors.maxlength">Phone Number must have 10 Digits</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="order_total">Order Total</label>
+                <input type="text" class="form-control" formControlName="order_total"
+                    [ngClass]="{'is-invalid':form.get('order_total').touched && form.get('order_total').invalid}" />
+                <div *ngIf="form.get('order_total').touched && form.get('order_total').invalid" class="invalid-feedback">
+                    <div *ngIf="form.get('order_total').errors.required">Total is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-success" [disabled]="!form.valid">
+                Submit Form
+            </button>
+        </div>
+    </form>

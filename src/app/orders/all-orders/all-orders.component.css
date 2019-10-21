@@ -1,0 +1,9 @@
+.title-row{
+    margin-top: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: salmon;
+}
+
+.new-order-btn{
+    float: right;
+}

@@ -1,0 +1,13 @@
+.login-page {
+    margin: 0 auto;
+    margin-top: 10%;
+    width: 30%;
+  }
+
+.title-color{
+    color: red;
+}
+
+.card-border{
+    border: none;
+}

@@ -1,0 +1,36 @@
+<div class="container login-page">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-border shadow-sm p-4 mb-4 bg-white">
+                <div class="card-body">
+                    <h4 class="card-title title-color text-center">OMS LOGIN</h4>
+                    <form [formGroup]="form" (ngSubmit)="form.valid && onSubmit()">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" formControlName="email" [ngClass]="{'is-invalid':form.get('email').touched && form.get('email').invalid}" />
+                            <div *ngIf="form.get('email').touched && form.get('email').invalid" class="invalid-feedback">
+                                <div *ngIf="form.get('email').errors.required">Email is required</div>
+                                <div *ngIf="form.get('email').errors.email">Enter Valid Email</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" formControlName="password" [ngClass]="{'is-invalid': form.get('password').touched && form.get('password').invalid}"/>
+                            <div *ngIf="form.get('password').touched && form.get('password').invalid" class="invalid-feedback">
+                                <div *ngIf="form.get('password').errors.required">Password is required</div>
+                                <div *ngIf="form.get('password').errors.minlength">Password Minimum Length is 8</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input id="rememberMe" type="checkbox" name="rememberMe" formControlName="rememberMe">
+                            <label class="pl-3" for="rememberMe">Remember Me</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary " value="Login" [disabled]="!form.valid" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
