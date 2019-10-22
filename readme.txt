@@ -25,3 +25,6 @@
 
 - And I haven't used ui-router and thought that it would take time to learn and complete and 
     I have completed with the angular routing in which I am aware of.
+
+- I have used NgbActiveModal for adding and editing orders instead of uib-modal beacause ui-b modal 
+    supports angular js.
