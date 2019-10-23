@@ -28,3 +28,5 @@
 
 - I have used NgbActiveModal for adding and editing orders instead of uib-modal beacause ui-b modal 
     supports angular js.
+
+- Intially It will load the default page of angular to continue with the login page add /login in the url.
